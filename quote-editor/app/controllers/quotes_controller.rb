@@ -48,3 +48,4 @@ class QuotesController < ApplicationController
       params.require(:quote).permit(:name)
     end
   end
+  

@@ -1,0 +1,14 @@
+<div class="hash-tag">
+    <div class="hash-tag__name">
+        <%= hash_tag.name %>
+    </div>
+    <div class="hash-tag__actions">
+        <%= button_to "Delete",
+                        [quote, hash_tag],
+                        method: :delete,
+                        class: "btn btn--light" %>
+        <%= link_to "Edit",
+                    [:edit, quote, hash_tag],
+                    class: "btn btn--light" %>
+    </div>
+</div>

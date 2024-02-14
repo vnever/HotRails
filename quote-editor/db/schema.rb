@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_09_153306) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_14_141331) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -18,6 +18,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_09_153306) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "hash_tags", force: :cascade do |t|
+    t.bigint "quote_id", null: false
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["quote_id"], name: "index_hash_tags_on_quote_id"
   end
 
   create_table "line_item_dates", force: :cascade do |t|
@@ -38,6 +46,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_09_153306) do
     t.index ["company_id"], name: "index_quotes_on_company_id"
   end
 
+  create_table "tags", force: :cascade do |t|
+    t.bigint "quote_id", null: false
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name", "quote_id"], name: "index_tags_on_name_and_quote_id", unique: true
+    t.index ["name"], name: "index_tags_on_name"
+    t.index ["quote_id"], name: "index_tags_on_quote_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -52,7 +70,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_09_153306) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "hash_tags", "quotes"
   add_foreign_key "line_item_dates", "quotes"
   add_foreign_key "quotes", "companies"
+  add_foreign_key "tags", "quotes"
   add_foreign_key "users", "companies"
 end

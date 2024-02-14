@@ -1,16 +1,29 @@
 <%= turbo_frame_tag quote do %>
   <div class="quote">
-    <%= link_to quote.name,
-                quote_path(quote),
-                data: { turbo_frame: "_top" } %>
-    <div class="quote__actions">
-      <%= button_to "Delete",
-                    quote_path(quote),
-                    method: :delete,
+    <div class="quote__header">
+      <%= link_to quote.name,
+                  quote_path(quote),
+                  data: { turbo_frame: "_top" } %>
+      <div class="quote__actions">
+        <%= button_to "Delete",
+                      quote_path(quote),
+                      method: :delete,
+                      class: "btn btn--light" %>
+        <%= link_to "Edit",
+                    edit_quote_path(quote),
                     class: "btn btn--light" %>
-      <%= link_to "Edit",
-                  edit_quote_path(quote),
-                  class: "btn btn--light" %>
+      </div>
+    </div>
+    <div class="quote__body">
+      <div class="hash-tag hash-tag--header">
+        <div class="hash-tag__name">Hash Tag</div>
+      </div>
+      <%= render quote.hash_tags, quote: quote %>
+      <div class="hash-tag hash-tag__footer">
+          <%= link_to "Add hashtag",
+                      [:new, quote, :hash_tag],
+                      class: "btn btn--primary" %>
+      </div>
     </div>
   </div>
 <% end %>

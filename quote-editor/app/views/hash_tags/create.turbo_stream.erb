@@ -1,0 +1,5 @@
+<%= turbo_stream.update HashTag.new, "" %>
+<%= turbo_stream.prepend "hash_tags" do %>
+    <%= render @hash_tag, quote: @quote %>
+<% end %>
+<%= render_turbo_stream_flash_messages %>

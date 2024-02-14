@@ -1,14 +1,21 @@
-<div class="hash-tag">
-    <div class="hash-tag__name">
-        <%= hash_tag.name %>
+<%= turbo_frame_tag hash_tag do %>
+    <div class="hash-tag">
+      <div class="hash-tag">
+            <div class="hash-tag__header">
+                <div class="hash-tag__title">
+                    <%= hash_tag.name %>
+                </div>
+                <div class="hash-tag__actions">
+                    <%= button_to "Delete",
+                                quote_hash_tag_path(quote, hash_tag),
+                                method: :delete,
+                                #form: { data: { turbo_confirm: "Are you sure?" } },
+                                class: "btn btn--light" %>
+                    <%= link_to "Edit",
+                            [:edit, quote, hash_tag],
+                            class: "btn btn--light" %>
+                </div>
+            </div>
+       </div>
     </div>
-    <div class="hash-tag__actions">
-        <%= button_to "Delete",
-                        [quote, hash_tag],
-                        method: :delete,
-                        class: "btn btn--light" %>
-        <%= link_to "Edit",
-                    [:edit, quote, hash_tag],
-                    class: "btn btn--light" %>
-    </div>
-</div>
+<% end %>

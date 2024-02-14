@@ -8,6 +8,8 @@ en:
         name: Name
       line_item_date:
         date: Date
+      hash_tag:
+        name: Name
 
   helpers:
     submit:
@@ -17,3 +19,6 @@ en:
       line_item_date:
         create: Create date
         update: Update date
+      hash_tag:
+        create: Create hashtag
+        update: Update hashtag

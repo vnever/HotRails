@@ -14,16 +14,5 @@
                     class: "btn btn--light" %>
       </div>
     </div>
-    <div class="quote__body">
-      <div class="hash-tag hash-tag--header">
-        <div class="hash-tag__name">Hash Tag</div>
-      </div>
-      <%= render quote.hash_tags, quote: quote %>
-      <div class="hash-tag hash-tag__footer">
-          <%= link_to "Add hashtag",
-                      [:new, quote, :hash_tag],
-                      class: "btn btn--primary" %>
-      </div>
-    </div>
   </div>
 <% end %>

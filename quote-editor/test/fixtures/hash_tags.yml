@@ -1,7 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 hashtag1:
+  quote: first
   name: family
 
 hashtag2:
+  quote: first
   name: motivational

@@ -17,3 +17,5 @@ en:
       line_item_date:
         create: Create date
         update: Update date
+      tag:
+        create: Create tag

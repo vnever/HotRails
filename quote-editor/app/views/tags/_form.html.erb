@@ -1,0 +1,7 @@
+<%= simple_form_for [quote, tag], html: { class: "form tag" } do |f| %>
+    <%= form_error_notification(tag) %>
+  
+    <%= f.input :name, html5: true, input_html: { autofocus: true } %>
+    <%= link_to "Cancel", quote_path(quote), class: "btn btn--light" %>
+    <%= f.submit class: "btn btn--secondary" %>
+<% end %>

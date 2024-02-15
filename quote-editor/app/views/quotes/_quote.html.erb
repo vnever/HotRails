@@ -15,7 +15,15 @@
       </div>
     </div>
     <div class="quote__footer">
-      <%= render quote.hash_tags, quote: quote %>
+      <%= turbo_frame_tag "hash_tags" do %>
+        <%= render quote.hash_tags, quote: quote %>
+      <% end %>
+      <%= link_to "New hashtag",
+              new_quote_hash_tag_path(quote),
+              data: { turbo_frame: dom_id(HashTag.new) },
+              class: "btn btn--primary" %>
+              
+      <%= turbo_frame_tag HashTag.new %>
     </div>
   </div>
 <% end %>

@@ -2,10 +2,10 @@
   display: inline-block;
   background-color: #cee3f8;
   color: #1a1a1b;
-  border-radius: 9999px;
-  padding: 4px 8px;
-  margin-right: 4px;
-  margin-bottom: 4px;
+  border-radius: 5000px;
+  padding: 2px 4px;
+  margin-right: 2px;
+  margin-bottom: 2px;
 
   &__name {
     flex: 1 1 100%;
@@ -17,13 +17,28 @@
   }
 
   &__actions {
-    display: inline-block;
-    margin-left: 4px;
-    cursor: pointer; 
+    display: flex;
+    padding: var(--space-xxs) var(--space-m);
+    border-radius: 999px;
+    background-origin: border-box; // Invisible borders with linear gradients
+    background-color: transparent;
+    border: solid 2px transparent;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    outline: none;
+    transition: filter 400ms, color 200ms;
+  
+    &:hover,
+    &:focus,
+    &:focus-within,
+    &:active {
+      transition: filter 250ms, color 200ms;
+    }
     
     .delete {
-      margin-left: 4px;
-      color: #898989
+      margin-left: 10px;
+      color: #ad3030
     }
 
     .edit {

@@ -2,18 +2,15 @@
     <div class="hash-tag">
       <div class="hash-tag">
             <div class="hash-tag__header">
-                <div class="hash-tag__title">
-                    <%= hash_tag.name %>
-                </div>
                 <div class="hash-tag__actions">
+                    <%= link_to hash_tag.name,
+                            [:edit, quote, hash_tag],
+                            class: "hash-tag hash-tag__actions.edit" %>
                     <%= button_to "x",
                                 quote_hash_tag_path(quote, hash_tag),
                                 method: :delete,
                                 #form: { data: { turbo_confirm: "Are you sure?" } },
-                                class: "hash-tag__actions.delete" %>
-                    <%= link_to "Edit",
-                            [:edit, quote, hash_tag],
-                            class: "hash-tag__actions.edit" %>
+                                class: "hash-tag hash-tag__actions.delete" %>
                 </div>
             </div>
        </div>

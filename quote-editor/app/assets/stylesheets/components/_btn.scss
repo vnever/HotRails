@@ -43,6 +43,19 @@
           filter: saturate(1.2) brightness(110%);
         }
       }
+
+      &--delete {
+        color: var(--color-white);
+        background-color: linear-gradient(--color-light);
+    
+        &:hover,
+        &:focus,
+        &:focus-within,
+        &:active {
+          color: var(--color-white);
+          filter: saturate(1.4) brightness(115%);
+        }
+      }
     
       &--light {
         color: var(--color-dark);

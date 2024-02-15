@@ -6,14 +6,14 @@
                     <%= hash_tag.name %>
                 </div>
                 <div class="hash-tag__actions">
-                    <%= button_to "Delete",
+                    <%= button_to "x",
                                 quote_hash_tag_path(quote, hash_tag),
                                 method: :delete,
                                 #form: { data: { turbo_confirm: "Are you sure?" } },
-                                class: "btn btn--light" %>
+                                class: "hash-tag__actions.delete" %>
                     <%= link_to "Edit",
                             [:edit, quote, hash_tag],
-                            class: "btn btn--light" %>
+                            class: "hash-tag__actions.edit" %>
                 </div>
             </div>
        </div>
